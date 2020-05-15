@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:fitsSystemWindows="true"
+    tools:context=".ui.main.MainActivity">
+
+    <androidx.viewpager.widget.ViewPager
+        android:id="@+id/vp_main"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent" />
+
+    <com.github.florent37.shapeofview.shapes.RoundRectView
+        android:id="@+id/rrv_main"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:layout_margin="@dimen/size_24dp"
+        app:layout_behavior=".ui.main.MainBehavior"
+        app:shape_roundRect_bottomLeftRadius="@dimen/size_32dp"
+        app:shape_roundRect_bottomRightRadius="@dimen/size_32dp"
+        app:shape_roundRect_topLeftRadius="@dimen/size_32dp"
+        app:shape_roundRect_topRightRadius="@dimen/size_32dp">
+
+        <me.ibrahimsn.lib.SmoothBottomBar
+            android:id="@+id/sbb_main"
+            android:layout_width="match_parent"
+            android:layout_height="@dimen/size_56dp"
+            app:backgroundColor="@color/colorPrimary"
+            app:menu="@menu/activity_main_navigation" />
+    </com.github.florent37.shapeofview.shapes.RoundRectView>
+
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

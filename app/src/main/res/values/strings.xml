@@ -1,0 +1,8 @@
+<resources>
+    <string name="app_name">Github</string>
+    <string name="home">Home</string>
+    <string name="favourite">Favourite</string>
+    <string name="start_searching">Start Searching</string>
+    <string name="search">Search</string>
+    <string name="content_description">Content Description</string>
+</resources>

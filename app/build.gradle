@@ -1,0 +1,116 @@
+apply plugin: 'com.android.application'
+apply plugin: 'kotlin-android'
+apply plugin: 'kotlin-android-extensions'
+apply plugin: 'kotlin-kapt'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.3"
+
+    defaultConfig {
+        applicationId "dev.arganaphangquestian.github"
+        minSdkVersion 17
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        multiDexEnabled true
+
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+    }
+
+    buildTypes {
+        debug {
+            buildConfigField "String", "GITHUB_URL", "\"https://api.github.com/\""
+            buildConfigField "String", "GITHUB_TOKEN", "\"dc4118a8141423d1dfc015e92120c785fa11b8ec\""
+        }
+        release {
+            buildConfigField "String", "GITHUB_URL", "\"https://api.github.com/\""
+            buildConfigField "String", "GITHUB_TOKEN", "\"dc4118a8141423d1dfc015e92120c785fa11b8ec\""
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+    dataBinding {
+        enabled = true
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+    kotlinOptions {
+        jvmTarget = '1.8'
+    }
+}
+
+dependencies {
+    implementation "org.jetbrains.kotlin:kotlin-stdlib:$kotlin_version"
+    implementation 'androidx.core:core-ktx:1.2.0'
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:2.0.0-beta5'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.lifecycle:lifecycle-livedata-ktx:2.2.0'
+
+    def coroutine_version = "1.3.4"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-core:$coroutine_version"
+    implementation "org.jetbrains.kotlinx:kotlinx-coroutines-android:$coroutine_version"
+
+    def lifecycle_version = "2.2.0"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle_version"
+    implementation "androidx.lifecycle:lifecycle-viewmodel-ktx:$lifecycle_version"
+
+    def room_version = "2.2.5"
+    implementation "androidx.room:room-runtime:$room_version"
+    implementation "androidx.room:room-ktx:$room_version"
+    kapt "androidx.room:room-compiler:$room_version"
+
+    def multidex_version = "1.0.3"
+    implementation "com.android.support:multidex:$multidex_version"
+
+    def material_version = "1.2.0-alpha06"
+    implementation "com.google.android.material:material:$material_version"
+
+    def flexbox_version = "2.0.1"
+    implementation "com.google.android:flexbox:$flexbox_version"
+
+    def retrofit_version = "2.7.2"
+    implementation "com.squareup.retrofit2:retrofit:$retrofit_version"
+    implementation "com.squareup.retrofit2:converter-moshi:$retrofit_version"
+
+    def moshi_version = "1.9.2"
+    implementation "com.squareup.moshi:moshi-kotlin:$moshi_version"
+    kapt "com.squareup.moshi:moshi-kotlin-codegen:$moshi_version"
+
+    def timber_version = "4.7.1"
+    implementation "com.jakewharton.timber:timber:$timber_version"
+
+    def glide_version = "4.11.0"
+    implementation "com.github.bumptech.glide:glide:$glide_version"
+    kapt "com.github.bumptech.glide:compiler:$glide_version"
+
+    def shape_version = "1.4.7"
+    implementation "com.github.florent37:shapeofview:$shape_version"
+
+    def koin_version = "2.1.5"
+    implementation "org.koin:koin-core:$koin_version"
+    implementation "org.koin:koin-core-ext:$koin_version"
+    implementation "org.koin:koin-androidx-scope:$koin_version"
+    implementation "org.koin:koin-androidx-viewmodel:$koin_version"
+    implementation "org.koin:koin-androidx-fragment:$koin_version"
+    testImplementation "org.koin:koin-test:$koin_version"
+
+    def viewPager_version = "1.0.0"
+    implementation "androidx.viewpager2:viewpager2:$viewPager_version"
+
+    def smoothBottomBar_version = "1.7.5"
+    implementation "com.github.ibrahimsn98:SmoothBottomBar:$smoothBottomBar_version"
+
+    def androidTest_version = "1.2.0"
+    testImplementation "androidx.test:core:$androidTest_version"
+    def mockito_version = "2.25.0"
+    testImplementation "org.mockito:mockito-core:$mockito_version"
+    testImplementation "androidx.room:room-testing:$room_version"
+
+    testImplementation 'junit:junit:4.12'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+}
