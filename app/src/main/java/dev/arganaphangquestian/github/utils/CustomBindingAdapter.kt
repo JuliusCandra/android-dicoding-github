@@ -11,6 +11,11 @@ object CustomBindingAdapter {
     @BindingAdapter("showLoading")
     @JvmStatic
     fun setProgressBarVisibility(view: ProgressBar, visible: MutableLiveData<NetworkState>) {
+        if (visible.value != null && visible.value!!.status == NetworkState.Status.RUNNING) {
+            println("Loading")
+        } else {
+            println("Loaded")
+        }
         view.visibility =
             if (visible.value != null && visible.value!!.status == NetworkState.Status.RUNNING) View.VISIBLE else View.GONE
     }

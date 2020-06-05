@@ -4,7 +4,7 @@
     <Transition
         motion:constraintSetEnd="@layout/activity_detail_end"
         motion:constraintSetStart="@layout/activity_detail_start"
-        motion:duration="1000">
+        motion:duration="250">
         <OnSwipe
             motion:dragDirection="dragUp"
             motion:touchAnchorId="@id/vp_detail"

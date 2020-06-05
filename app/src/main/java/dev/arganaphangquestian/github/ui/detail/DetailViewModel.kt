@@ -23,12 +23,12 @@ class DetailViewModel(private val repo: GithubRepository) : ViewModel() {
                 val followerResult = repo.followerUser(username)
                 val followingResult = repo.followingUser(username)
                 withContext(Dispatchers.Main) {
+                    networkState.value = NetworkState.LOADED
                     details.value = mapOf(
                         "detail" to detailResult,
                         "follower" to followerResult,
                         "following" to followingResult
                     )
-                    networkState.value = NetworkState.LOADED
                 }
             } catch (e: Exception) {
                 networkState.value = NetworkState.error(e.message)
