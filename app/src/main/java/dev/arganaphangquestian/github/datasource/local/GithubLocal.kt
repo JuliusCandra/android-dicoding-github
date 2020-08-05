@@ -2,8 +2,9 @@ package dev.arganaphangquestian.github.datasource.local
 
 import dev.arganaphangquestian.github.data.dao.GithubDao
 import dev.arganaphangquestian.github.data.entity.User
+import javax.inject.Inject
 
-class GithubLocal(private val dao: GithubDao) {
+class GithubLocal @Inject constructor(private val dao: GithubDao) {
     fun getAll() = dao.findAll()
 
     fun delete(user: User) {

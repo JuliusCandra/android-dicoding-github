@@ -4,17 +4,19 @@ import android.net.Uri
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import com.bumptech.glide.Glide
 import com.google.android.material.tabs.TabLayoutMediator
+import dagger.hilt.android.AndroidEntryPoint
 import dev.arganaphangquestian.github.R
 import dev.arganaphangquestian.github.data.entity.DetailUser
 import dev.arganaphangquestian.github.data.entity.User
 import kotlinx.android.synthetic.main.activity_detail.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@AndroidEntryPoint
 class DetailActivity : AppCompatActivity() {
 
-    private val detailViewModel by viewModel<DetailViewModel>()
+    private lateinit var detailViewModel: DetailViewModel
     private lateinit var username: String
     private val pagers = listOf("Follower", "Following")
 
@@ -26,6 +28,7 @@ class DetailActivity : AppCompatActivity() {
 
     private fun init() {
         setContentView(R.layout.activity_detail)
+        detailViewModel = ViewModelProvider(this).get(DetailViewModel::class.java)
         username = this.intent.getStringExtra("username") ?: ""
     }
 

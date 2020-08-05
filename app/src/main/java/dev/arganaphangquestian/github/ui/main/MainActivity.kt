@@ -3,11 +3,13 @@ package dev.arganaphangquestian.github.ui.main
 import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.viewpager.widget.ViewPager
+import dagger.hilt.android.AndroidEntryPoint
 import dev.arganaphangquestian.github.R
 import dev.arganaphangquestian.github.utils.BOTTOMMENU
 import kotlinx.android.synthetic.main.activity_main.*
 import me.ibrahimsn.lib.OnItemSelectedListener
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private val mainAdapter = MainAdapter(supportFragmentManager)

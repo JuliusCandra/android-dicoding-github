@@ -16,5 +16,6 @@ data class DetailUser(
     @Json(name = "blog")
     var blog: String? = "",
     @Json(name = "location")
-    var location: String? = ""
+    var location: String? = "",
+    var isFavourite: Boolean = false
 )

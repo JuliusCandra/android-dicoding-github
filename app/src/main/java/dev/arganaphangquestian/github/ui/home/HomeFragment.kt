@@ -8,7 +8,9 @@ import android.view.ViewGroup
 import androidx.databinding.DataBindingUtil
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import dev.arganaphangquestian.github.R
 import dev.arganaphangquestian.github.data.entity.User
 import dev.arganaphangquestian.github.databinding.FragmentHomeBinding
@@ -18,15 +20,15 @@ import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
 import kotlinx.coroutines.delay
 import kotlinx.coroutines.launch
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@AndroidEntryPoint
 class HomeFragment : Fragment() {
 
     companion object {
         fun newInstance() = HomeFragment()
     }
 
-    private val homeViewModel by viewModel<HomeViewModel>()
+    private lateinit var homeViewModel: HomeViewModel
     private lateinit var homeBinding: FragmentHomeBinding
     private val homeAdapter = HomeAdapter()
 
@@ -38,6 +40,11 @@ class HomeFragment : Fragment() {
         homeBinding.viewModel = homeViewModel
         homeBinding.lifecycleOwner = this
         return homeBinding.root
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -1,8 +1,9 @@
 package dev.arganaphangquestian.github.datasource.network
 
 import dev.arganaphangquestian.github.service.GithubService
+import javax.inject.Inject
 
-class GithubNetwork(private val githubService: GithubService) {
+class GithubNetwork @Inject constructor(private val githubService: GithubService) {
     suspend fun searchUser(username: String) = githubService.searchUser(username)
 
     suspend fun detailUser(username: String) = githubService.detailUser(username)

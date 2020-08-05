@@ -3,8 +3,9 @@ package dev.arganaphangquestian.github.datasource.repository
 import dev.arganaphangquestian.github.data.entity.User
 import dev.arganaphangquestian.github.datasource.local.GithubLocal
 import dev.arganaphangquestian.github.datasource.network.GithubNetwork
+import javax.inject.Inject
 
-class GithubRepository(private val local: GithubLocal, private val network: GithubNetwork) {
+class GithubRepository @Inject constructor(private val local: GithubLocal, private val network: GithubNetwork) {
     suspend fun searchUser(username: String) = network.searchUser(username)
 
     suspend fun detailUser(username: String) = network.detailUser(username)

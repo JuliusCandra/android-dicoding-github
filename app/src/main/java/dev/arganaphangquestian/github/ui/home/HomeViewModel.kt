@@ -1,5 +1,6 @@
 package dev.arganaphangquestian.github.ui.home
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -11,7 +12,7 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
-class HomeViewModel(private val repo: GithubRepository) : ViewModel() {
+class HomeViewModel @ViewModelInject constructor(private val repo: GithubRepository) : ViewModel() {
     val searchText = MutableLiveData("")
     val networkState = MutableLiveData<NetworkState>()
 

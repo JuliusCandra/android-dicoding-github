@@ -6,18 +6,20 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.Observer
+import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.LinearLayoutManager
+import dagger.hilt.android.AndroidEntryPoint
 import dev.arganaphangquestian.github.R
 import kotlinx.android.synthetic.main.fragment_favourite.*
-import org.koin.androidx.viewmodel.ext.android.viewModel
 
+@AndroidEntryPoint
 class FavouriteFragment : Fragment() {
 
     companion object {
         fun newInstance() = FavouriteFragment()
     }
 
-    private val favouriteViewModel by viewModel<FavouriteViewModel>()
+    private lateinit var favouriteViewModel: FavouriteViewModel
     private val favouriteAdapter = FavouriteAdapter()
 
     override fun onCreateView(
@@ -25,6 +27,11 @@ class FavouriteFragment : Fragment() {
         savedInstanceState: Bundle?
     ): View? {
         return inflater.inflate(R.layout.fragment_favourite, container, false)
+    }
+
+    override fun onActivityCreated(savedInstanceState: Bundle?) {
+        super.onActivityCreated(savedInstanceState)
+        favouriteViewModel = ViewModelProvider(this).get(FavouriteViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

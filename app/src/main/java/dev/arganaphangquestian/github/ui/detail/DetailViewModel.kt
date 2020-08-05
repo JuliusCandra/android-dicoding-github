@@ -1,5 +1,6 @@
 package dev.arganaphangquestian.github.ui.detail
 
+import androidx.hilt.lifecycle.ViewModelInject
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
@@ -10,7 +11,8 @@ import kotlinx.coroutines.launch
 import kotlinx.coroutines.withContext
 import timber.log.Timber
 
-class DetailViewModel(private val repo: GithubRepository) : ViewModel() {
+class DetailViewModel @ViewModelInject constructor(private val repo: GithubRepository) :
+    ViewModel() {
 
     val networkState = MutableLiveData<NetworkState>()
 
