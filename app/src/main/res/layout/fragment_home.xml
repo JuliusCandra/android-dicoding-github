@@ -4,7 +4,6 @@
     xmlns:tools="http://schemas.android.com/tools">
 
     <data>
-
         <variable
             name="viewModel"
             type="dev.arganaphangquestian.github.ui.home.HomeViewModel" />
@@ -68,8 +67,6 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_marginTop="@dimen/size_24dp"
-            android:paddingHorizontal="@dimen/size_24dp"
-            android:text="@string/start_searching"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"

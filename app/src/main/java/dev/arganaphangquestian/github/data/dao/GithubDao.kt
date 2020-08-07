@@ -20,4 +20,7 @@ interface GithubDao {
 
     @Query("SELECT * FROM users")
     fun findAll(): LiveData<List<User>>
+
+    @Query("SELECT * FROM users WHERE login = :username LIMIT 1")
+    fun findByUsername(username: String): LiveData<User>
 }

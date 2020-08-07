@@ -1,7 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="dev.arganaphangquestian.github">
 
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
 
     <application
         android:name=".App"
@@ -19,5 +21,12 @@
             </intent-filter>
         </activity>
         <activity android:name=".ui.detail.DetailActivity" />
+        <receiver android:name=".broadcast.RemindBroadcast" />
+        <receiver android:name=".broadcast.BootReceiver" android:enabled="false">
+            <intent-filter>
+                <action android:name="android.intent.action.BOOT_COMPLETED"/>
+            </intent-filter>
+        </receiver>
     </application>
+
 </manifest>

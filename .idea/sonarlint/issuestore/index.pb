@@ -35,8 +35,6 @@ t
 Dapp/src/main/java/dev/arganaphangquestian/github/data/entity/User.kt,b/3/b3827abf4c704c383ef3e27cb365dc6bb63f9269
 o
 ?app/src/main/java/dev/arganaphangquestian/github/AppDatabase.kt,0/3/039d3a45386bf95b77cfa79c4825134ce769e74e
-p
-@app/src/main/java/dev/arganaphangquestian/github/di/AppModule.kt,c/6/c6b3beeae9a7642acf4af62f74bd1f3c3a3177ef
 „
 Tapp/src/main/java/dev/arganaphangquestian/github/datasource/network/GithubNetwork.kt,0/b/0b8ad07f8c0e66db1a80b09c8e58af782a5db8e9
 Š
@@ -55,3 +53,11 @@ w
 Gapp/src/main/java/dev/arganaphangquestian/github/ui/home/HomeAdapter.kt,c/f/cff527db9bdacfa3fb37a7bbeda1f9140f602b76
 ~
 Napp/src/main/java/dev/arganaphangquestian/github/utils/CustomBindingAdapter.kt,7/4/742410b2cdfb4c97e87a540e0f3b1937ebcdead3
+€
+Papp/src/main/java/dev/arganaphangquestian/github/data/response/SearchResponse.kt,0/6/06a52aa41735281c89a617b48b196eba42bf1b10
+y
+Iapp/src/main/java/dev/arganaphangquestian/github/service/GithubService.kt,2/f/2f1317d8e8d1faafe03e98f65d2afd576b3c4f40
+u
+Eapp/src/main/java/dev/arganaphangquestian/github/di/DatabaseModule.kt,d/d/dd5705787995aa0f9ef8126ac9f73d2ae80b8707
+t
+Dapp/src/main/java/dev/arganaphangquestian/github/di/NetworkModule.kt,4/4/44b24c7156010fdceac470ce4c4928e40d1e53ab

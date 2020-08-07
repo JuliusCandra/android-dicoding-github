@@ -13,14 +13,17 @@ import javax.inject.Singleton
 @Module
 @InstallIn(ApplicationComponent::class)
 object DatabaseModule {
-    private val appDatabase = Room.databaseBuilder(App.instance.applicationContext, AppDatabase::class.java, "github.db")
+
+    @Provides
+    @Singleton
+    fun provideDatabase() = Room.databaseBuilder(App.instance.applicationContext, AppDatabase::class.java, "github.db")
             .fallbackToDestructiveMigration()
             .allowMainThreadQueries()
             .build()
 
     @Provides
     @Singleton
-    fun provideGithubDao(): GithubDao {
+    fun provideGithubDao(appDatabase: AppDatabase): GithubDao {
         return appDatabase.githubDao()
     }
 }

@@ -10,11 +10,14 @@ import com.squareup.moshi.JsonClass
 @JsonClass(generateAdapter = true)
 data class User(
     @PrimaryKey(autoGenerate = true)
-    var id: Long,
+    @ColumnInfo(name = "id")
+    var id: Long = 0L,
     @ColumnInfo(name = "avatar_url")
     @Json(name = "avatar_url")
     var avatarUrl: String = "",
     @ColumnInfo(name = "login")
     @Json(name = "login")
-    var login: String = ""
+    var login: String = "",
+    @ColumnInfo(name = "isFavourite")
+    var isFavourite: Boolean = false
 )

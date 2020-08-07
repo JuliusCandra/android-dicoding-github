@@ -19,4 +19,6 @@ class GithubRepository @Inject constructor(private val local: GithubLocal, priva
     fun deleteFavourite(user: User) = local.delete(user)
 
     fun getFavourites() = local.getAll()
+
+    fun findFavouriteByUsername(username: String) = local.findByUsername(username)
 }

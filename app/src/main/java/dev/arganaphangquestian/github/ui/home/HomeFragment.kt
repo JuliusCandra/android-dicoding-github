@@ -36,15 +36,11 @@ class HomeFragment : Fragment() {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
+        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
         homeBinding = DataBindingUtil.inflate(inflater, R.layout.fragment_home, container, false)
         homeBinding.viewModel = homeViewModel
         homeBinding.lifecycleOwner = this
         return homeBinding.root
-    }
-
-    override fun onActivityCreated(savedInstanceState: Bundle?) {
-        super.onActivityCreated(savedInstanceState)
-        homeViewModel = ViewModelProvider(this).get(HomeViewModel::class.java)
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {

@@ -14,4 +14,10 @@ class GithubLocal @Inject constructor(private val dao: GithubDao) {
     fun save(user: User) {
         dao.save(user)
     }
+
+    fun update(user: User) {
+        dao.update(user)
+    }
+
+    fun findByUsername(username: String) = dao.findByUsername(username)
 }
