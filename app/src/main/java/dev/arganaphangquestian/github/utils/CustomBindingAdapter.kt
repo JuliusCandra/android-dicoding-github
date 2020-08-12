@@ -30,7 +30,7 @@ fun setTextViewVisibility(view: TextView, text: MutableLiveData<String>, visible
 
 @BindingAdapter("isFavourite")
 fun isFavouriteFAB(view: FloatingActionButton, visible: MutableLiveData<User?>) {
-    if(visible.value != null) {
+    if (visible.value != null) {
         view.setImageDrawable(ContextCompat.getDrawable(view.context, R.drawable.ic_favourite_fill))
     } else {
         view.setImageDrawable(ContextCompat.getDrawable(view.context, R.drawable.ic_favourite))

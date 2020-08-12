@@ -45,7 +45,6 @@ class DetailActivity : AppCompatActivity() {
     @Suppress("unchecked_cast")
     private fun loadData() {
         detailViewModel.usernameGithub.value = username
-        detailViewModel.findFavouriteByUsername()
         detailViewModel.getDetails(username).observe(this, Observer { net ->
             if (net != null && net.status == NetworkState.Status.SUCCESS){
                 detailViewModel.details.observe(this, Observer {

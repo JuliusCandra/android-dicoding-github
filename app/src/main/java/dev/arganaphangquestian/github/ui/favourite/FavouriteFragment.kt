@@ -51,7 +51,6 @@ class FavouriteFragment : Fragment() {
                 intent.putExtra("username", data.login)
                 this@FavouriteFragment.activity?.startActivity(intent)
             }
-
         })
     }
 

@@ -104,7 +104,7 @@
             android:id="@+id/fab_favourite"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            isFavourite="@{viewModel.isFavourite}"
+            isFavourite="@{viewModel.isFavourite()}"
             android:layout_margin="@dimen/size_32dp"
             android:tint="@color/colorAccent"
             android:onClick="@{() -> viewModel.toggleFavourite()}"

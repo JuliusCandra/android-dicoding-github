@@ -17,7 +17,6 @@ class DetailViewModel @ViewModelInject constructor(private val repo: GithubRepos
     ViewModel() {
     val networkState = MutableLiveData<NetworkState>()
     val details = MutableLiveData<Map<String, Any>>()
-    val isFavourite = MutableLiveData<User?>()
     val usernameGithub = MutableLiveData("")
 
     fun getDetails(username: String): MutableLiveData<NetworkState> {
@@ -43,20 +42,17 @@ class DetailViewModel @ViewModelInject constructor(private val repo: GithubRepos
         return networkState
     }
 
-    fun findFavouriteByUsername() {
+    fun isFavourite() : MutableLiveData<User?>{
+        val res = MutableLiveData<User?>()
         viewModelScope.launch {
-            networkState.value = NetworkState.LOADING
-            try {
-                val resFav = repo.findFavouriteByUsername(usernameGithub.value!!)
-                withContext(Dispatchers.Main) {
-                    isFavourite.value = resFav.value
-                    networkState.value = NetworkState.LOADED
+            val resUser = usernameGithub.value?.let { repo.findFavouriteByUsername(it) }
+            withContext(Dispatchers.Main) {
+                if (resUser != null) {
+                    res.value = resUser.value
                 }
-            } catch (e: Exception) {
-                networkState.value = NetworkState.error(e.message)
-                Timber.e(e)
             }
         }
+        return res
     }
 
     fun toggleFavourite() {
